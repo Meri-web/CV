@@ -375,7 +375,7 @@
                         <a href="https://www.behance.net/merchkolya4cbf" target="_blank" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" title="Upwork" class="upwork icon-bg"> </a>
+                        <a href="https://www.upwork.com/o/profiles/users/_~012ad79687083074ec/" target="_blank" title="Upwork" class="upwork icon-bg"> </a>
                     </li>
                <!--      <li>
                         <a href="#" target="_blank" title="Guru" class="guru icon-bg"> </a>
@@ -387,7 +387,7 @@
                         <a href="https://www.freelancer.com/u/merichkolyan?w=f" target="_blank" title="Freelancer" class="freelancer icon-bg"> </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" title="Skype"> <i class="fa fa-skype" aria-hidden="true"></i></a>
+                        <a href="https://join.skype.com/invite/dFhwWT6jss2D" target="_blank" title="Skype"> <i class="fa fa-skype" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -575,7 +575,38 @@
 
         });
     });
+    $(function(){
 
+        var $container = $('#container'),
+                $filterLinks = $('#filters button');
+
+        $container.isotope({
+            itemSelector: '.item',
+            filter: '*'
+        });
+
+        $filterLinks.click(function(){
+            var $this = $(this);
+
+            // don't proceed if already selected
+            if ( $this.hasClass('selected') ) {
+                return;
+            }
+
+            $filterLinks.filter('.selected').removeClass('selected');
+            $this.addClass('selected');
+
+            // get selector from data-filter attribute
+            selector = $this.data('filter');
+
+            $container.isotope({
+                filter: selector
+            });
+
+
+        });
+
+    });
 </script>
 </body>
 </html>
